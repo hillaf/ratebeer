@@ -15,6 +15,12 @@ group :production do
    gem 'rails_12factor'
 end
 
+group :development, :test do
+  gem 'byebug'
+  gem "better_errors"
+  gem 'web-console', '~> 2.0'
+end
+
 ruby '2.2.0'
 
 # Use SCSS for stylesheets
