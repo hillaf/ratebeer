@@ -1,19 +1,11 @@
 class Beer < ActiveRecord::Base
+	include RatingAverage
+
 	belongs_to :brewery
 	has_many :ratings, dependent: :destroy
+	has_many :raters, -> { uniq }, through: :ratings, source: :user
 
-	def average_rating
-
-		avg = 0;
-
-		self.ratings.each do |rating|
-			avg += rating.score
-		end
-
-		avg = avg / self.ratings.count
-		"Has #{self.ratings.count}" + " rating".pluralize(self.ratings.count) + ", average #{avg}"
-
-	end
+	validates :name, presence: true
 
 	def to_s
 		"#{self.brewery.name}: #{self.name}"

@@ -42,6 +42,8 @@ class BeersController < ApplicationController
     end
   end
 
+
+
   # PATCH/PUT /beers/1
   # PATCH/PUT /beers/1.json
   def update

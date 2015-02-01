@@ -1,5 +1,6 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, only: [:destroy]
 
   # GET /breweries
   # GET /breweries.json
@@ -58,6 +59,12 @@ class BreweriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to breweries_url, notice: 'Brewery was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "admin" and password == "secret"
     end
   end
 
