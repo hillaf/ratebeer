@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'httparty'
 
 gem 'rb-readline'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -17,6 +18,7 @@ end
 
 group :development, :test do
   gem "better_errors"
+  gem 'httparty'
 end
 
 group :test do
