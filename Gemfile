@@ -17,6 +17,7 @@ end
 
 group :development, :test do
   gem "better_errors"
+  gem 'httparty'
 end
 
 group :test do
