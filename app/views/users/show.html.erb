@@ -9,6 +9,13 @@
   Has <%= pluralize(@user.ratings.count, 'rating') %>, average <%= @user.average_rating %>
 </p>
 
+<% if @user.beer_clubs.any? %>
+    member of
+    <% @user.beer_clubs.each do |club| %>
+        <%= link_to club.name, club %>
+    <% end %>
+<% end %>
+
 <ul>
   <% @user.ratings.each do |rating| %>
       <li>

@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :beers, through: :ratings
+  has_many :memberships, dependent: :destroy
+  has_many :beer_clubs, through: :memberships
+  has_many :ratings, dependent: :destroy
 
   validates :username, uniqueness: true,
                        length: { minimum: 3,
@@ -12,7 +15,7 @@ class User < ActiveRecord::Base
 
   validates :password, format: { with: /\d.*[A-Z]|[A-Z].*\d/, message: "has to contain one number and one upper case letter" }
 
-  has_many :ratings, dependent: :destroy
+
 
   def favorite_beer
     return nil if ratings.empty?
