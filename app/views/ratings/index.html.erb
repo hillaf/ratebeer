@@ -7,4 +7,7 @@
   <% end %>
 </ul>
 
-<%= link_to 'new rating', new_rating_path %>
+<% if current_user.nil? %>
+<% else %>
+    <%= link_to 'new rating', new_rating_path %> |
+<% end %>
