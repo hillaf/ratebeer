@@ -28,7 +28,6 @@ class BeersController < ApplicationController
   def create
     @beer = Beer.new(beer_params)
 
-
     respond_to do |format|
       if @beer.save
         format.html { redirect_to beers_path, notice: 'Beer was successfully created.' }
@@ -72,7 +71,7 @@ class BeersController < ApplicationController
 
   def set_breweries_and_styles_for_template
     @breweries = Brewery.all
-    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+    @styles = Style.all
   end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -82,6 +81,6 @@ class BeersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_params
-      params.require(:beer).permit(:name, :style, :brewery_id)
+      params.require(:beer).permit(:name, :style, :brewery_id, :style_id)
     end
 end

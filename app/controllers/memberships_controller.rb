@@ -76,4 +76,14 @@ class MembershipsController < ApplicationController
     def membership_params
       params.require(:membership).permit(:beer_club_id, :user_id)
     end
+
+  # def find_membership_by_user_and_club
+  #   members_of_club = Membership.find_by_beer_club_id(membership_params)
+  #
+  #   members_of_club.each do |member|
+  #     if member
+  #       return
+  #     end
+  #   end
+
 end
