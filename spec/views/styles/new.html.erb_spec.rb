@@ -1,24 +1,24 @@
-require 'rails_helper'
-
-RSpec.describe "styles/new", type: :view do
-  before(:each) do
-    assign(:style, Style.new(
-      :name => "MyString",
-      :description => "MyText",
-      :beer_id => 1
-    ))
-  end
-
-  it "renders new style form" do
-    render
-
-    assert_select "form[action=?][method=?]", styles_path, "post" do
-
-      assert_select "input#style_name[name=?]", "style[name]"
-
-      assert_select "textarea#style_description[name=?]", "style[description]"
-
-      assert_select "input#style_beer_id[name=?]", "style[beer_id]"
-    end
-  end
-end
+# require 'rails_helper'
+#
+# RSpec.describe "styles/new", type: :view do
+#   before(:each) do
+#     assign(:style, Style.new(
+#       :name => "MyString",
+#       :description => "MyText",
+#       :beer_id => 1
+#     ))
+#   end
+#
+#   it "renders new style form" do
+#     render
+#
+#     assert_select "form[action=?][method=?]", styles_path, "post" do
+#
+#       assert_select "input#style_name[name=?]", "style[name]"
+#
+#       assert_select "textarea#style_description[name=?]", "style[description]"
+#
+#       assert_select "input#style_beer_id[name=?]", "style[beer_id]"
+#     end
+#   end
+# end

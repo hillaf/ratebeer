@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
   has_many :ratings, dependent: :destroy
+  has_many :styles, through: :beers
 
   validates :username, uniqueness: true,
                        length: { minimum: 3,
@@ -35,10 +36,10 @@ class User < ActiveRecord::Base
 
   #private
   def rated_styles
-    ratings.map{ |r| r.beer.style }.uniq
+    ratings.map{ |r| r.beer.style_id }.uniq
   end
   def style_average(style)
-    ratings_of_style = ratings.select{ |r| r.beer.style==style }
+    ratings_of_style = ratings.select{ |r| r.beer.style_id==style }
     ratings_of_style.inject(0.0){ |sum, r| sum+r.score}/ratings_of_style.count
   end
   def rated_breweries

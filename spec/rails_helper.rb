@@ -73,18 +73,18 @@ module OwnTestHelper
     end
   end
   def create_beers_with_ratings_and_brewery(*scores, brewery, user)
-    create_beers(scores, "Pale Ale", brewery, user)
+    create_beers(scores, 1, brewery, user)
   end
-  def create_beers_with_ratings_and_style(*scores, style, user)
-    create_beers(scores, style, Brewery.new, user)
+  def create_beers_with_ratings_and_style(*scores, style_id, user)
+    create_beers(scores, style_id, Brewery.new, user)
   end
-  def create_beers(scores, style, brewery, user)
+  def create_beers(scores, style_id, brewery, user)
     scores.each do |score|
-      create_beer(score, style, brewery, user)
+      create_beer(score, style_id, brewery, user)
     end
   end
-  def create_beer(score, style, brewery, user)
-    beer = FactoryGirl.create(:beer, style:style, brewery:brewery)
+  def create_beer(score, style_id, brewery, user)
+    beer = FactoryGirl.create(:beer, brewery:brewery, style_id:style_id)
     FactoryGirl.create(:rating, score:score, beer:beer, user:user)
     beer
   end
