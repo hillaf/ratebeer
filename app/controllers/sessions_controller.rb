@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
   def destroy
     # nollataan sessio
     session[:user_id] = nil
+    session[:last_rating] = nil
     # uudelleenohjataan sovellus pääsivulle
     redirect_to :root
   end

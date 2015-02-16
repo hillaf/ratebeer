@@ -29,6 +29,7 @@ class RatingsController < ApplicationController
       redirect_to signin_path, notice:'you should be signed in'
     elsif @rating.save
       current_user.ratings << @rating  ## virheen aiheuttanut rivi
+      session[:last_rating] = @rating.to_s
       redirect_to user_path current_user
     else
       @beers = Beer.all
