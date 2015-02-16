@@ -1,5 +1,5 @@
 <h2>List of ratings</h2>
-<p> Number of ratings: <%= @ratings.count %> </p>
+<p> Total of <%= pluralize(@ratings.count, 'rating') %> given</p>
 
 <ul>
   <% @ratings.each do |rating| %>

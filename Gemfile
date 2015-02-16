@@ -25,6 +25,8 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'webmock'
+  gem 'rspec-its'
+  gem 'simplecov', require: false
 end
 
 ruby '2.2.0'

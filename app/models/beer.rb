@@ -7,6 +7,7 @@ class Beer < ActiveRecord::Base
 	has_many :raters, -> { uniq }, through: :ratings, source: :user
 
 	validates :name, presence: true
+	validates :name, length: { minimum: 1 }
 
 	validates :style_id, presence: true
 

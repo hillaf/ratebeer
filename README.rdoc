@@ -1,3 +1,0 @@
-== README
-
-http://blooming-dusk-7894.herokuapp.com/breweries/
