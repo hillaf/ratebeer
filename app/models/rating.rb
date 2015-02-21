@@ -10,4 +10,6 @@ class Rating < ActiveRecord::Base
     "#{self.beer.name} #{self.score}"
   end
 
+
+
 end

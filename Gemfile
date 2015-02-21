@@ -29,6 +29,11 @@ group :test do
   gem 'simplecov', require: false
 end
 
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
+end
+
 ruby '2.2.0'
 
 # Use SCSS for stylesheets
