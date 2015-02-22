@@ -10,8 +10,8 @@
     <table class="table table-hover">
       <thead>
       <tr>
-        <th>Name</th>
-        <th>Average</th>
+        <th>name</th>
+        <th>average</th>
       </tr>
       </thead>
 
@@ -19,14 +19,13 @@
       <% @top_breweries.each do |brewery| %>
           <tr>
             <td><%= link_to brewery.name, brewery %></td>
-            <td><%= brewery.average_rating %></td>
+            <td><%= round(brewery.average_rating) %></td>
             <td></td>
           </tr>
       <% end %>
       </tbody>
     </table>
   </div>
-
 
 
   <div class="col-md-6">
@@ -35,8 +34,8 @@
     <table class="table table-hover">
       <thead>
       <tr>
-        <th>Name</th>
-        <th>Average</th>
+        <th>name</th>
+        <th>average</th>
       </tr>
       </thead>
 
@@ -44,16 +43,72 @@
       <% @top_beers.each do |beer| %>
           <tr>
             <td><%= link_to beer.name, beer %></td>
-            <td><%= beer.average_rating %></td>
+            <td><%= round(beer.average_rating) %></td>
             <td></td>
           </tr>
       <% end %>
       </tbody>
     </table>
   </div>
+
+
+
  </div>
 
+  <div class="row">
 
+    <h3>Top users</h3>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>username</th>
+        <th>favourite beer</th>
+        <th>preferred style</th>
+        <th>favourite brewery</th>
+        <th>ratings</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+     <% @top_users.each do |user| %>
+          <tr>
+            <td><%= link_to user.username, user %></td>
+            <td><%= user.favorite_beer %></td>
+            <td><%= user.favorite_style %></td>
+            <td><%= user.favorite_brewery %></td>
+            <td><%= round(user.ratings.count) %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <h3>Recent ratings</h3>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>user</th>
+        <th>beer</th>
+        <th>rating</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @recent.each do |rating| %>
+          <tr>
+            <td><%= link_to rating.user.username, rating.user %></td>
+            <td><%= link_to rating.beer, rating.beer %></td>
+            <td><%= round(rating.score) %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
+  </div>
 
 
 

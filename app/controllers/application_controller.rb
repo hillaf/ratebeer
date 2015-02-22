@@ -11,7 +11,15 @@ class ApplicationController < ActionController::Base
     User.find(session[:user_id])
   end
 
+  def admin
+    return session[:admin]
+  end
+
   def ensure_that_signed_in
     redirect_to signin_path, notice:'you should be signed in' if current_user.nil?
+  end
+
+  def ensure_that_admin
+    redirect_to beers_path, notice:'you do not have the permission for this action' unless admin
   end
 end
